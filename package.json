@@ -1,0 +1,42 @@
+{
+  "name": "top-level-await",
+  "version": "1.0.0",
+  "repository": "git@github.com:alinalihassan/top-level-await.git",
+  "description": "An example repository for the top-level-await experimental support in Typescript 4.5.",
+  "license": "MIT",
+  "author": "Alin Ali Hassan <alinalihassan@gmail.com>",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon -x node --no-warnings --experimental-specifier-resolution=node --loader ts-node/esm src/index.ts",
+    "start": "node --es-module-specifier-resolution=node ./dist/index.js",
+    "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "dependencies": {
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.11",
+    "jest": "^27.4.5",
+    "nodemon": "^2.0.15",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0"
+  },
+  "jest": {
+    "preset": "ts-jest/presets/default-esm",
+    "modulePathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ],
+    "extensionsToTreatAsEsm": [
+      ".ts"
+    ],
+    "globals": {
+      "ts-jest": {
+        "useESM": true
+      }
+    }
+  }
+}
