@@ -2,6 +2,8 @@ let welcome = async (): Promise<string> => {
   return 'Hello World!';
 };
 
-await welcome();
+let hello = await welcome();
+
+await Promise.resolve(console.log('Hello World!🎉'));
 
 export { welcome }; 
